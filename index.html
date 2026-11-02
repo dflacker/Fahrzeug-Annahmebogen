@@ -197,12 +197,30 @@ button.secondary{background:#e8edf1;color:#17202a}
 
 <!-- AKTIONEN -->
 <div class="actions no-print">
-  <button onclick="window.print()">🖨️ Formular drucken / als PDF speichern</button>
+  <button onclick="erstellePDF().">🖨️ Formular drucken / als PDF speichern</button>
   <button class="secondary" onclick="resetForm()">Eingaben zurücksetzen</button>
 </div>
 </main>
 
 <script>
+function erstellePDF() {
+  const jetzt = new Date();
+
+  const jahr = jetzt.getFullYear();
+  const monat = String(jetzt.getMonth() + 1).padStart(2, '0');
+  const tag = String(jetzt.getDate()).padStart(2, '0');
+  const stunde = String(jetzt.getHours()).padStart(2, '0');
+  const minute = String(jetzt.getMinutes()).padStart(2, '0');
+
+  document.getElementById('date').value =
+    `${jahr}-${monat}-${tag}`;
+
+  document.getElementById('uhrzeit').value =
+    `${stunde}:${minute}`;
+
+  window.print();
+}
+
 document.getElementById('date').valueAsDate = new Date();
 
 // KI-Scanner: Schlüssel bleibt ausschließlich auf dem lokalen Server.
