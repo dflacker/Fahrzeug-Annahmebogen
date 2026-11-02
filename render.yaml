@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: fahrzeugannahme-ipad
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --workers 1 --threads 4 --bind 0.0.0.0:$PORT server:app
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: APP_USER
+        value: werkstatt
+      - key: APP_PASSWORD
+        sync: false
+      - key: DATABASE_URL
+        sync: false
