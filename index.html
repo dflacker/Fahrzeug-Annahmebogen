@@ -52,6 +52,11 @@ button.secondary{background:#e8edf1;color:#17202a}
   #sig{height:90px}
   h1{font-size:18px}h2{font-size:13px;border:0}
 }
+
+#scanPreview img {
+  max-width: 100%;
+  height: auto;
+}
 </style>
 </head>
 <body>
@@ -76,7 +81,7 @@ button.secondary{background:#e8edf1;color:#17202a}
     <div id="ocrStatus" role="status" aria-live="polite"></div><p id="budgetInfo" class="small" style="margin-top:8px"></p>
       <p class="small" style="margin-top:10px">Bitte den Fahrzeugschein vollständig, scharf und möglichst ohne Spiegelungen fotografieren. Die KI-Erkennung benötigt Internet. Das Foto wird zur Analyse an OpenAI übertragen. Bitte nur mit Berechtigung verwenden.</p>
   </div>
-  <div id="scanPreview" class="photo-gallery" style="grid-template-columns:minmax(140px,200px);"></div>
+<div id="scanPreview" class="photo-gallery" style="display:grid;grid-template-columns:160px;max-width:100%;overflow:hidden;"></div>
 </section>
 
 <!-- 1. AUFTRAG & BESICHTIGUNG -->
